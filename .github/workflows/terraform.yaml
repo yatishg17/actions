@@ -27,6 +27,10 @@ jobs:
         continue-on-error: true
         working-directory: ./terraform
 
+      - name: 'Terraform init'
+        run: terraform init
+        working-directory: ./terraform
+
       - name: 'Terraform Validate'
         run: terraform validate
         working-directory: ./terraform
