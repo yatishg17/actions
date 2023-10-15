@@ -23,32 +23,19 @@ jobs:
           terraform_version: 1.6.1
 
       - name: 'Terraform Format'
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.6.1
         run: terraform fmt -check
         continue-on-error: true
         working-directory: ./terraform
 
       - name: 'Terraform Validate'
-        uses: hashicorp/setup-terraform@v2
-        id: fmt
-        with:
-          terraform_version: 1.6.1
         run: terraform validate
         working-directory: ./terraform
 
       - name: 'Terraform Plan'
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.6.1
         run: terraform plan -no-color
         working-directory: ./terraform
 
       - name: 'Terraform apply'
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.6.1
         run: terraform apply -auto-approve -input=false
         working-directory: ./terraform
 
